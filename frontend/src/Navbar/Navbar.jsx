@@ -2,22 +2,26 @@ import React from "react";
 import { Container } from "react-bootstrap";
 function Navbar() {
   return (
-    <Container
+    <div
       style={{
+        width:"100%",
         backgroundColor: "rgba(0, 0, 0, 0.0)",
-        color:"#000",
+        color: "#000",
         display: "flex",
         height: "10vh",
         justifyContent: "space-between",
         listStyle: "none",
-        padding:"0 100px"
+        padding: "0 100px",
+        position:"absolute",
+        zIndex:"100",
+        border:"solid red 1px"
       }}
     >
-      <div style={{ paddingTop: "15px" }}>
+      <div >
         <img
-          style={{ height: "100%", width: "100%", transform: " scale(3.9)" }}
-          src="Gray and Black Simple Studio Logo (4).png"
-          alt=""
+          style={{ height: "100%", width: "100%"}}
+          src="./2.svg"
+          alt="no image UTri"
         />
       </div>
 
@@ -34,7 +38,8 @@ function Navbar() {
           fontWeight: "bold",
           paddingTop: "30px",
           letterSpacing: ".025em",
-          cursor:"pointer"
+          cursor: "pointer",
+          color:"#F9F9F9"
         }}
       >
         <li>Design and Build</li>
@@ -44,7 +49,7 @@ function Navbar() {
         <li>About</li>
         <li>Contact us</li>
       </div>
-    </Container>
+    </div>
   );
 }
 
