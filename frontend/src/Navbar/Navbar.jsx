@@ -14,7 +14,6 @@ function Navbar() {
         padding: "0 100px",
         position:"absolute",
         zIndex:"100",
-        border:"solid red 1px"
       }}
     >
       <div >
