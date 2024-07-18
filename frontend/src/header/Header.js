@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { useInView } from "react-intersection-observer";
+import Body from "../body/Body";
 
 const Header = () => {
   const [opacity, setOpacity] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpacity(1);
-    }, 400);
-
-    return () => {
-      clearTimeout(timer);
-      setOpacity(0);
-    };
-  }, []);
 
   const [data, setData] = useState([
     {
@@ -37,11 +28,22 @@ const Header = () => {
     },
   ]);
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setOpacity(1);
+    }
+  }, [inView]);
+
   return (
     <>
-      <Carousel controls={false}>
+      <Carousel style={{minHeight:"100vh"}} controls={false}>
         {data.map((elm, i) => (
-          <Carousel.Item key={i} interval={3000}>
+          <Carousel.Item key={i} interval={6000}>
             <img
               style={{
                 width: "100%",
@@ -75,7 +77,7 @@ const Header = () => {
                 style={{
                   opacity: opacity,
                   transform: "translateZ(0)",
-                  animation: `slideIn 4s forwards`,
+                  animation: `slideIn 6s forwards`,
                   fontWeight: "bold",
                 }}
               >
@@ -90,7 +92,7 @@ const Header = () => {
           @keyframes fadeIn {
             from {
               opacity: 0;
-              transform: translateY(20px);
+              transform: translateY(50px);
             }
             to {
               opacity: 1;
@@ -101,7 +103,7 @@ const Header = () => {
           @keyframes slideIn {
             from {
               opacity: 0;
-              transform: translateX(200px);
+              transform: translateX(500px);
             }
             to {
               opacity: 1;
@@ -110,6 +112,9 @@ const Header = () => {
           }
         `}
       </style>
+      <div ref={ref}>
+        {inView && <Body />}
+      </div>
     </>
   );
 };
