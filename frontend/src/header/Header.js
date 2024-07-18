@@ -17,22 +17,23 @@ const Header = () => {
 
   const [data, setData] = useState([
     {
-      title: "From Concept to Construction",
-      description: "Tri-United brings your ideas to life from design to build, ensuring every detail matches your vision.",
+      title: "Innovation and Excellence ",
+      description:
+        "Tri-United blends innovative techniques with unmatched excellence to deliver outstanding results.",
       image:
         "https://images.pexels.com/photos/258160/pexels-photo-258160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
-      title: "Innovation and Excellence ",
-      description: "Tri-United blends innovative techniques with unmatched excellence to deliver outstanding results.",
-      image:
-        "https://images.pexels.com/photos/258160/pexels-photo-258160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "From Concept to Construction",
+      description:
+        "Tri-United brings your ideas to life from design to build, ensuring every detail matches your vision.",
+      image: "0cd5c290-0e74-4069-b78f-3597a633efa5.jpeg",
     },
     {
       title: "Crafting Exceptional Experiences",
-      description: "Experience the Tri-United difference with quality craftsmanship and meticulous attention to detail.",
-      image:
-        "https://images.pexels.com/photos/258160/pexels-photo-258160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      description:
+        "Experience the Tri-United difference with quality craftsmanship and meticulous attention to detail.",
+      image: "9b87bb01-2351-43dd-ab79-3ef836834624.jpeg",
     },
   ]);
 
@@ -43,10 +44,9 @@ const Header = () => {
           <Carousel.Item key={i} interval={3000}>
             <img
               style={{
-             
                 width: "100%",
                 height: "100vh",
-                filter: "brightness(50%)",
+                filter: "brightness(40%)",
                 objectFit: "cover",
               }}
               src={elm.image}
@@ -54,16 +54,16 @@ const Header = () => {
             />
             <Carousel.Caption
               style={{
-                textAlign:"left",
-                marginLeft:"1060px",
+                textAlign: "left",
+                marginLeft: "1060px",
                 top: "150px",
                 left: "-950px",
               }}
             >
               <h1
                 style={{
-                  width:"70vw",
-                  fontSize:"100px",
+                  width: "70vw",
+                  fontSize: "100px",
                   opacity: opacity,
                   transform: "translateZ(0)",
                   animation: `fadeIn 4s forwards`,
@@ -73,11 +73,10 @@ const Header = () => {
               </h1>
               <p
                 style={{
-                  
                   opacity: opacity,
                   transform: "translateZ(0)",
                   animation: `slideIn 4s forwards`,
-                  fontWeight:"bold"
+                  fontWeight: "bold",
                 }}
               >
                 {elm.description}

@@ -33,10 +33,9 @@ function Navbar() {
           gap: "20px",
           padding: "30px",
           fontFamily: "Acme",
-          fontSize: "17px",
-          fontWeight: "bold",
+          fontSize: "18px",
           paddingTop: "30px",
-          letterSpacing: ".025em",
+          letterSpacing: ".0,7em",
           cursor: "pointer",
           color:"#F9F9F9"
         }}
