@@ -41,7 +41,7 @@ function Navbar() {
     fontFamily: "Acme",
     fontSize: "18px",
     paddingTop: "30px",
-    letterSpacing: "0.1em",
+    letterSpacing: "0.07em",
     cursor: "pointer",
   };
 
