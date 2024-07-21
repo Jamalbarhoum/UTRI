@@ -74,7 +74,7 @@ function Body() {
 
   return (
     <Container>
-      <Row style={containerStyle}>
+      <Row ref={ref} style={containerStyle}>
         <Col style={colStyle} xl={6} >
           <animated.div style={{ ...springProps, ...colStyle }}>
             <img
@@ -86,7 +86,7 @@ function Body() {
         </Col>
         <Col style={colStyle }  xl={6}>
         <animated.div style={{...springProps2, ...colStyle}}>
-          <p  style={pStyle}>
+          <p   style={pStyle}>
             <span style={spanStyle}>We are a long-established</span>,
             independent building services and home improvements company. We
             have a wealth of experience working as main building contractors
@@ -110,7 +110,7 @@ function Body() {
               <h1  style={{color:"rgb(137,151,120)",fontWeight:"bold",fontSize:"80px"}}>{projects}+</h1>
               <h5 style={{fontWeight:"bold"}}>Projects</h5>
             </div>
-            <div ref={ref} style={{ width: "50%" }}>
+            <div  style={{ width: "50%" }}>
               <h1 style={{color:"rgb(137,151,120)",fontWeight:"bold",fontSize:"80px"}}>{clients}+</h1>
               <h5 style={{fontWeight:"bold"}}>Clients</h5>
             </div>

@@ -47,8 +47,11 @@ function Navbar() {
 
   return (
     <div style={navbarStyle}>
-      <div style={{margin:"10px"}}>
+      <div style={{ margin: "10px" }}>
         <img
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           style={{ height: "100%", width: "100%" }}
           src="./2.svg"
           alt="no image UTri"
@@ -56,7 +59,13 @@ function Navbar() {
       </div>
 
       <div style={listItemStyle}>
-        <li>Design and Build</li>
+        <li
+          onClick={() => {
+            window.scrollTo({ top: 1500, behavior: "smooth" });
+          }}
+        >
+          Design and Build
+        </li>
         <li>Services</li>
         <li>Projects</li>
         <li>Careers</li>
