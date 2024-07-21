@@ -21,7 +21,7 @@ function Navbar() {
 
   const navbarStyle = {
     width: "100%",
-    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.7)" : "transparent",
+    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.3)" : "transparent",
     color: "#FFF",
     display: "flex",
     height: "10vh",
@@ -47,7 +47,7 @@ function Navbar() {
 
   return (
     <div style={navbarStyle}>
-      <div>
+      <div style={{margin:"10px"}}>
         <img
           style={{ height: "100%", width: "100%" }}
           src="./2.svg"

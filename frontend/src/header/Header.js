@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <>
-      <Carousel style={{minHeight:"100vh"}} controls={false}>
+      <Carousel style={{ minHeight: "100vh" }} controls={false}>
         {data.map((elm, i) => (
           <Carousel.Item key={i} interval={6000}>
             <img
@@ -68,7 +68,7 @@ const Header = () => {
                   fontSize: "100px",
                   opacity: opacity,
                   transform: "translateZ(0)",
-                  animation: `fadeIn 4s forwards`,
+                  animation: `fadeIn 2s forwards`,
                 }}
               >
                 {elm.title}
@@ -77,7 +77,7 @@ const Header = () => {
                 style={{
                   opacity: opacity,
                   transform: "translateZ(0)",
-                  animation: `slideIn 6s forwards`,
+                  animation: `slideIn 2s forwards`,
                   fontWeight: "bold",
                 }}
               >
@@ -103,12 +103,17 @@ const Header = () => {
           @keyframes slideIn {
             from {
               opacity: 0;
-              transform: translateX(500px);
+              transform: translateX(200px);
             }
             to {
               opacity: 1;
               transform: translateX(0);
             }
+          }
+
+          .carousel-control-prev,
+          .carousel-control-next {
+            display: none;
           }
         `}
       </style>

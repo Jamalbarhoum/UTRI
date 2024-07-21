@@ -5,9 +5,9 @@ import { useInView } from "react-intersection-observer";
 
 function Body() {
 
-  const [projects, setProjects] = useState(0);
-  const [clients, setClients] = useState(0);
-  const [professionals, setProfessionals] = useState(0);
+  const [projects, setProjects] = useState(150);
+  const [clients, setClients] = useState(80);
+  const [professionals, setProfessionals] = useState(200);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -16,29 +16,25 @@ function Body() {
 
   useEffect(() => {
     if (inView) {
-      const updateNumbers = (setFunc, maxNumber) => {
-        let count = 0;
-        const interval = setInterval(() => {
-          count += 1;
-          setFunc(count);
-          if (count === maxNumber) {
-            clearInterval(interval);
-          }
-        }, 10);
-      };
-
-      updateNumbers(setProjects, 150);
-      updateNumbers(setClients, 80);
-      updateNumbers(setProfessionals, 200);
+      
     }
+  
   }, [inView]);
 
-  // Animation spring for Col element
+
   const springProps = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateX(0)" : "translateX(300px)",
+    transform: inView ? "translateX(0)" : "translateX(150px)",
     config: {
-      tension: 200,
+      tension: 150,
+      friction: 50,
+    },
+  });
+  const springProps2 = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateX(0)" : "translateY(150px)",
+    config: {
+      tension: 150,
       friction: 50,
     },
   });
@@ -72,7 +68,6 @@ function Body() {
 
   const pStyle = {
     fontSize: "20px",
-    color: "rgb(75,85,99)",
     fontFamily: "Acme",
     width: "80%",
   };
@@ -80,7 +75,7 @@ function Body() {
   return (
     <Container>
       <Row style={containerStyle}>
-        <Col style={colStyle} xl={6} ref={ref}>
+        <Col style={colStyle} xl={6} >
           <animated.div style={{ ...springProps, ...colStyle }}>
             <img
               style={imgStyle}
@@ -89,8 +84,9 @@ function Body() {
             />
           </animated.div>
         </Col>
-        <Col style={colStyle} xl={6}>
-          <p style={pStyle}>
+        <Col style={colStyle }  xl={6}>
+        <animated.div style={{...springProps2, ...colStyle}}>
+          <p  style={pStyle}>
             <span style={spanStyle}>We are a long-established</span>,
             independent building services and home improvements company. We
             have a wealth of experience working as main building contractors
@@ -110,19 +106,20 @@ function Body() {
               padding: "20px",
             }}
           >
-            <div style={{ width: "50%" }}>
-              <h1  style={{color:"rgb(137,151,120)",fontSize:"80px"}}>{projects}+</h1>
-              <h5>Projects</h5>
+            <div  style={{ width: "50%" }}>
+              <h1  style={{color:"rgb(137,151,120)",fontWeight:"bold",fontSize:"80px"}}>{projects}+</h1>
+              <h5 style={{fontWeight:"bold"}}>Projects</h5>
+            </div>
+            <div ref={ref} style={{ width: "50%" }}>
+              <h1 style={{color:"rgb(137,151,120)",fontWeight:"bold",fontSize:"80px"}}>{clients}+</h1>
+              <h5 style={{fontWeight:"bold"}}>Clients</h5>
             </div>
             <div style={{ width: "50%" }}>
-              <h1 style={{color:"rgb(137,151,120)",fontSize:"80px"}}>{clients}+</h1>
-              <h5>Clients</h5>
-            </div>
-            <div style={{ width: "50%" }}>
-              <h1 style={{color:"rgb(137,151,120)",fontSize:"80px"}}>{professionals}+</h1>
-              <h5>Professionals</h5>
+              <h1 style={{color:"rgb(137,151,120)",fontWeight:"bold",fontSize:"80px"}}>{professionals}+</h1>
+              <h5 style={{fontWeight:"bold"}}>Professionals</h5>
             </div>
           </div>
+          </animated.div>
         </Col>
       </Row>
     </Container>
